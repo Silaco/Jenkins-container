@@ -1,0 +1,12 @@
+---
+- name: Test Deploy
+    hosts: local
+    connection: ssh
+    become: sudo
+    tasks: 
+    - name: Go Into Docker Container And Run Multiple Commands
+      docker:
+        name: ubuntu-xenial
+        image: ubuntu:xenial
+        state: present
+        command: docker exec -it ubuntu:xenial /bin/echo "hello-world"
